@@ -8,14 +8,26 @@
 <body>
   <header><a href=""></a></header>
 <main>
-  <form action="">
+  <form class="formulario-registro0" id ="form-registro" novalidate>
     <h1>Registrar Asistencia</h1>
     <label for="nombre"> Nombre</label>
-    <Input type="text" id="nombre" name="nombre" required></Input>
+    <input type="text" id="nombre" name="nombre" required>
+    <span class="error" id="error-nombre" ></span>
+
     <label for="boleta">Numero de Boleta</label>
-    <Input type="text" id="boleta" name="boleta" required></Input>
+    <input type="text" id="boleta" name="boleta" required>
+    <span class="error" id="error-boleta"></span>
+
+    <label" class="fecha">Fecha de Registro (DD/MM/AA)</label>
+    <input type="text" id="fecha" name="fecha" placeholder="(DD/MM/AA)" required>
+    <span class="error" id="error-fecha"></span>
+
     <button type="submit">Registrar</button>
+
+    <p class="mensaje-exito" id="mensaje-exito"></p>
   </form>
 </main>
+
+<script src="./JS/validaciones.js"></script>
 </body>
 </html>
