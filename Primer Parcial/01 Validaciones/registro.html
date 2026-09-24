@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Registrar Asistencia - CECyT 9</title>
   <link rel="stylesheet" href="./CSS/style.css">
 </head>
+
 <body>
-  <header><a href=""></a></header>
-<main>
-  <form class="formulario-registro0" id ="form-registro" novalidate>
-    <h1>Registrar Asistencia</h1>
-    <label for="nombre"> Nombre</label>
-    <input type="text" id="nombre" name="nombre" required>
-    <span class="error" id="error-nombre" ></span>
+  <header>
+    <h1>Introduccion a Python</h1>
+  </header>
+  <nav>
+    <a href="./index.html">Volver al Catalogo</a>
+  </nav>
+  <main>
+    <form class="fr" id="form-registro" novalidate>
+      <h1>Registrar Asistencia</h1>
+      <label for="nombre"> Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+      <span class="error" id="error-nombre"></span>
 
-    <label for="boleta">Numero de Boleta</label>
-    <input type="text" id="boleta" name="boleta" required>
-    <span class="error" id="error-boleta"></span>
+      <label for="boleta">Numero de Boleta:</label>
+      <input type="text" id="boleta" name="boleta" required>
+      <span class="error" id="error-boleta"></span>
 
-    <label" class="fecha">Fecha de Registro (DD/MM/AA)</label>
-    <input type="text" id="fecha" name="fecha" placeholder="(DD/MM/AA)" required>
-    <span class="error" id="error-fecha"></span>
+      <label for="fecha">Fecha de Registro (DD/MM/AA):</label>
+      <input type="text" id="fecha" name="fecha" placeholder="(DD/MM/AA)" required>
+      <span class="error" id="error-fecha"></span>
 
-    <button type="submit">Registrar</button>
+      <button type="submit">Registrar</button>
 
-    <p class="mensaje-exito" id="mensaje-exito"></p>
-  </form>
-</main>
+      <p class="mensaje-exito" id="mensaje-exito"></p>
+    </form>
+  </main>
 
-<script src="./JS/validaciones.js"></script>
+  <script src="./JS/validaciones.js"></script>
 </body>
+
 </html>
