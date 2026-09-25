@@ -65,6 +65,7 @@ thead{
     background-color: #16453f;
     color: white;
 }
+
 th{
     border-right: 1px solid rgba(255, 255, 255, 0.603);
     padding: 1rem;
@@ -73,6 +74,7 @@ th{
 }
 
 td{
+    
     background-color: #fffff7;
     padding: 1rem;
 }
