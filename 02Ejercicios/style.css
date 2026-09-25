@@ -41,22 +41,48 @@ nav a {
 main {
     display: flex;
     flex-direction: column;
+    justify-content: left;
 
     max-width: 960px;
     margin: 2rem auto;
     padding: 1.5rem;
 }
 
+.ejercicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .tabla-scroll{
+    width: 60%;
+    margin: 0;
     background-color: #fffff7;
 }
 
-.tabla-talleres thead{
-
+.tabla-scroll thead{
     background-color: #16453f;
     font-style: italic;
     color: #fffff7;
     
+}
+
+.tabla-scroll table{
+    border-collapse: collapse;
+}
+
+.tabla-scroll th{
+    margin: 0;
+    padding: .6rem;
+
+}
+
+.tabla-scroll td{
+    text-align: center;
+    padding: .3rem;
+}
+.tabla-scroll tr:nth(even){
+    background-color: #6b6b6b;
 }
 
 .ejercicio h2{
