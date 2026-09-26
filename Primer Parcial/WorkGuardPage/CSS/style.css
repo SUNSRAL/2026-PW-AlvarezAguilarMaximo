@@ -209,6 +209,9 @@ nav a:hover {
 
 /* ══ FORMULARIO ══ */
 .formulario {
+    display: flex;
+    flex-direction: column;
+
     background-color: var(--blanco);
     padding: 30px;
     border-radius: 8px;
@@ -240,6 +243,36 @@ nav a:hover {
     border-color: var(--primario);
 }
 
+input.invalido {
+    border: .1rem solid #d9534f !important;
+}
+
+textarea.invalido {
+    border: .1rem solid #d9534f !important;
+}
+
+.error{
+    color: #d9534f;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.mensaje-exito {
+    color: #155724;
+    background-color: #d4edda77;
+    border: 1px solid #c3e6cb;
+    padding: 3px;
+    border-radius: 5px;
+    margin-top: 2rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.oculto {
+  display: none !important;
+}
+
+
 /* ══ FOOTER ══ */
 footer {
     background-color: var(--oscuro);
@@ -259,15 +292,17 @@ footer {
     margin-bottom: 5px;
 }
 
-.footer-redes a {
-    color: var(--blanco);
-    font-size: 1.2rem;
-    margin-left: 15px;
-    transition: color 0.3s;
+.footer-equipo p {
+    color: var(--primario-claro);
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
-.footer-redes a:hover {
-    color: var(--primario-claro);
+.footer-equipo ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .footer-copy {

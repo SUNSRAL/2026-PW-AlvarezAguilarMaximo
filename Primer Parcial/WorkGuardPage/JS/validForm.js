@@ -1,22 +1,17 @@
-/*
-  Validaciones para el formulario mediante Expresiones Regulares:
-  1. Nombre: Letras, acentos, espacios (entre 2 y 60 caracteres).
-  2. Boleta: Exactamente 10 dígitos numéricos.
-  3. Fecha: Formato estricto DD/MM/AAAA.
-*/
 
 const patrones = {
     nombre: /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]{2,60}$/,
 
-    boleta: /^\d{10}$/,
-    
-    fecha: /^(0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+
+    mensaje: /^.{1,500}$/,
+
 };
 
 const mensajes = {
     nombre: "Solo letras y espacios entre 2 y 60 caracteres.",
-    boleta: "La boleta debe tener exactamente 10 dígitos numéricos.",
-    fecha: "La fecha debe tener el formato DD/MM/AAAA."
+    email: "El correo electrónico no es válido.",
+    mensaje: "El mensaje debe tener entre 1 y 500 caracteres."
 };
 
 function validarCampo(campo, valor) {
@@ -24,7 +19,7 @@ function validarCampo(campo, valor) {
 }
 
 if (typeof document !== 'undefined') {
-    const formulario = document.getElementById('form-registro');
+    const formulario = document.getElementById('form-contacto');
 
     formulario.addEventListener('submit', (evento) => {
         evento.preventDefault(); // Evita el envío automático
@@ -33,13 +28,16 @@ if (typeof document !== 'undefined') {
 
         for (const campo of Object.keys(patrones)) {
             const input = document.getElementById(campo);
-            
+            const textArea = document.getElementById(campo);
+
             const errorSpan = document.getElementById(`error-${campo}`);
 
             const esValido = validarCampo(campo, input.value);
 
             input.classList.toggle('invalido', !esValido);
-            
+            textArea.classList.toggle('invalido', !esValido);
+
+
             if (errorSpan) {
                 errorSpan.textContent = esValido ? '' : mensajes[campo];
             }
@@ -51,7 +49,16 @@ if (typeof document !== 'undefined') {
 
         const mensajeExito = document.getElementById('mensaje-exito');
         if (mensajeExito) {
-            mensajeExito.textContent = formularioValido ? '¡Registro exitoso!' : '';
+            if(formularioValido){
+                mensajeExito.textContent = `¡Gracias! Tu mensaje ha sido enviado con éxito.`;
+                mensajeExito.classList.remove('oculto');
+
+                formulario.reset();
+
+                setTimeout(() => {
+                    mensajeExito.classList.add('oculto');
+                }, 2000);
+            }
         }
     });
 }
