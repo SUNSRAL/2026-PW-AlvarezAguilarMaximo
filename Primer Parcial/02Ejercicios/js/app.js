@@ -40,9 +40,9 @@ selectOperacionArreglo.addEventListener('change', (evento) => {
     const operacion = selectOperacionArreglo.value;
 
     if (operacion === 'find') {
-        findCampos.style.display = 'block';
+        findCampos.classList.remove('ocultar');
     } else {
-        findCampos.style.display = 'none';
+        findCampos.classList.add('ocultar');
     }
 });
 
@@ -68,13 +68,18 @@ formArreglos.addEventListener('submit', (evento) => {
             break;
         case 'find':
             const nombreInstructor = InputNombreInstructor.value.trim();
-            errorNombreInstructor.textContent = nombreInstructor === '' ? 'Por favor, ingresa el nombre del instructor.' : '';
 
+            if (nombreInstructor === '') {
+                errorNombreInstructor.textContent = 'Por favor, ingresa el nombre del instructor.';
+                resultado = ''; // Evitamos que imprima un valor previo o undefined
+            } else {
+                errorNombreInstructor.textContent = '';
+                const tallerEncontrado = talleres.find((t) => t.instructor.toLowerCase() === nombreInstructor.toLowerCase());
 
-            const tallerEncontrado = talleres.find((t) => t.instructor === nombreInstructor);
-            resultadoArreglos.textContent = !tallerEncontrado ? `No se encontró ningún taller impartido por ${nombreInstructor}.`
-                : `Primer taller de ${nombreInstructor}: ${tallerEncontrado.nombre}`;
-
+                resultado = !tallerEncontrado
+                    ? `No se encontró ningún taller impartido por ${nombreInstructor}.`
+                    : `Primer taller de ${nombreInstructor}: ${tallerEncontrado.nombre}`;
+            }
             break;
     }
     resultadoArreglos.textContent = resultado;

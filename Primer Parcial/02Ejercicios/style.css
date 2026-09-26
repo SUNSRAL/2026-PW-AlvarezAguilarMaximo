@@ -125,13 +125,16 @@ main {
 }
 
 .find-campos{
-    display: none !important;
     display: flex;
     flex-direction: column;
 
     width: 100%;
     
 }
+.ocultar{
+    display: none;
+}
+
 select{
     margin-bottom: 1rem;
     padding: .5rem;
@@ -157,6 +160,12 @@ button{
     background-color: #16453f;
     color: #fffff7;
     font-weight: bold;
+
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #033441;
 }
 label{
     margin-bottom: .5rem;
@@ -166,7 +175,7 @@ label{
 .error{
     margin: 0;
     padding: 0;
-    color: #d9534f;
+    color: #16453f;
 }
 
 
