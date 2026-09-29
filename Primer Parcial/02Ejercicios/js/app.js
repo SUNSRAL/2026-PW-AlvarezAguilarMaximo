@@ -106,20 +106,17 @@ formObjeto.addEventListener('submit', (evento) => {
 
     let resultado;
 
-     switch (operacion) {
+    switch (operacion) {
         case 'keys':
             resultado = JSON.stringify(Object.keys(taller));
             break;
         case 'values':
-            // Obtiene un arreglo con solo los valores del objeto y lo convierte a texto
             resultado = JSON.stringify(Object.values(taller));
             break;
         case 'entries':
-            // Genera una lista formateada de clave: valor
             resultado = Object.entries(taller).map(([campo, valor]) => `${campo}: ${valor}`).join('\n');
             break;
         case 'stringify':
-            // Convierte el objeto JavaScript a una cadena de texto en formato JSON limpio
             resultado = JSON.stringify(taller, null, 2);
             break;
         case 'roundtrip':
